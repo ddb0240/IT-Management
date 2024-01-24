@@ -1,0 +1,400 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+p{
+    font-size: 14px;
+}
+
+button{
+    cursor: pointer;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    background-color: #f1f1f1;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.search-container{
+    position: absolute;
+    z-index: 5;
+    top: 5px;
+    left: 5px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar{
+    height: 100vh;
+    width: 25%;
+    background-color: #262626;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: width .10s ease-in-out;
+    padding: 0 1rem;
+}
+
+.address-search{
+    width: 100%;
+    height: auto;
+    background-color: #262626;
+    display: flex;
+    flex-direction: row;
+    padding: .5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.directions-graphic{
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchbars{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.searchbox{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    padding: 6px;
+    background-color: #333333
+}
+
+.search-button {
+    border: none;
+    background-color: #333333
+}
+
+#map{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    color: black;
+}
+
+#map div{
+    color: grey;
+}
+
+#map label{
+    color: black;
+}
+
+#rec-list{
+    width: 70%;
+    max-height: 50vh;
+    background-color: #262626;
+    padding: .5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    overflow: auto;
+}
+
+.rec-button{
+    background: none;
+    border: none;
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+}
+
+.rec-button:hover{
+    background-color: #404040;
+}
+
+.route-rec-card{
+    background-color: #333333;
+    box-shadow: 0px 0px 3px 0px #111;
+    border-radius: 2px;
+}
+
+.rec-content{
+    position: relative;
+}
+
+.rec-header{
+    display: grid;
+    grid-template-columns: 8% 92%;
+    justify-items: start;
+    margin-bottom: 4px;
+    align-items: center;
+}
+
+.rec-id{
+    color: white;
+    border-radius: 2px;
+    padding: 3px;
+    width: fit-content;
+    font-size: 10px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+}
+
+.rec-icon{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+.searchbar{
+    width: 100%;
+    height: 30px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background-color: #333333
+}
+
+.single #origin-search{
+    display: none;
+}
+
+.single .directions-graphic{
+    display: none;
+}
+
+.single #destination-search{
+    border: none;
+}
+
+.header{
+    width: 100%;
+    margin: 20px 0;
+    justify-items: start;
+    
+}
+
+.toggle-sidebar{ 
+    border: none;
+    background: none;
+    width: auto;
+    justify-self: start;
+}
+
+.route-card{
+    width: 100%;
+    background-color: #333333;
+    height: fit-content;
+    padding: 10px;
+    border: none;
+    box-shadow: 0px 0px 3px 0px #111;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.route-card:hover{
+    background-color: #404040;
+}
+
+.selected {
+    border-left: solid 5px #00853E;
+    border-radius: 2px;
+}
+
+.selected .timepoint-list{
+    display: block;
+}
+
+.timepoint-list{
+    display: none;
+    width: 100%;
+    border-top: 1px solid #4d4d4d;
+    margin-top: 4px;
+    justify-items: start;
+}
+
+.timepoint-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 10% 65% 25%;
+    position: relative;
+    margin-top: 10px;
+}
+
+.nowrap-text{
+    text-overflow: clip;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.timepoint-container::before{
+    content: "|";
+    left: 7.5px;
+    position: absolute;
+    bottom: 15px;
+}
+
+.timepoint-time{
+    justify-self: center;
+}
+
+.index-label{
+    width: 18px;
+    height: 18px;
+    display: block;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+.timepoint-num{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.content{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 75% 25%;
+    text-align: left;
+}
+
+.route-id{
+    color: white;
+    border-radius: 2px;
+    padding: 3px;
+    width: fit-content;
+    font-size: 10px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+}
+
+.route-name{
+    margin-bottom: 6px;
+}
+
+.time-container{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    flex-direction: column;
+    width: 100%;
+}
+
+.text-container{
+    width: 100%;
+}
+
+.next-stop{
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+}
+
+#route-list{
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    margin-top: 6px;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.sidebar-search{
+    margin-bottom: 10px;
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    padding: 10px;
+    border: none;
+    background-color: #333333
+}
+
+.inactive{
+    display: none;
+}
+
+#toggle-inactive{
+    background-color: #00853E;
+    color: white;
+    border: none;
+    height: 30px;
+    border-radius: 2px;
+    width: 100%;
+}
+
+#origin::placeholder{
+    color: white;
+}
+
+.pac-container{
+    background-color: #333333;
+}
+
+.pac-item-query{
+    color: white;
+}
+
+.pac-item:hover{
+    background-color: black;
+}
+
+.tools {
+    display: none;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    width: 30px;
+    justify-content: space-evenly;
+    gap: 4px;
+}
+
+.tools button{
+    background: none;
+    border: none;
+}
+
+.blue {
+    color: #243fb5;
+}
+
+.red {
+    color: #9e1c18;
+}
+
+

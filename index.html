@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Track</title>
+    <script type='text/javascript' src='config.js'></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <script type="module" src="./index.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="search-container">
+            <div class="address-search single">
+                <div class="directions-graphic">
+                    <span class="material-symbols-outlined scale-down">circle</span>
+                    <span class="material-symbols-outlined">more_vert</span>
+                    <span class="material-symbols-outlined scale-down">location_on</span>
+                </div>
+                <div class="searchbars">
+                    <div class="searchbox" id="origin-search">
+                        <input type="text" onClick="this.select()" class="searchbar" id="origin" placeholder="Current Location">
+                    </div>
+                    <div class="searchbox" id="destination-search">
+                        <input type="text" onClick="this.select()" class="searchbar" id="destination" placeholder="Enter a destination" onfocus="expandSearch()">
+                    </div>
+                </div>
+                <div class="tools hidden">
+                    <button class="close-button" onclick="closeSearch()" title="Close Search">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                    <button class="refresh-button" onclick="refreshState()" title="Refresh Search">
+                        <span class="material-symbols-outlined">refresh</span>
+                    </button>
+                    <button class="search-button" id="search-button" title="Search for Routes">
+                        <span class="material-symbols-outlined">search</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="rec-list"></div>
+        </div>
+        <div id="map"></div>
+    </div>
+    <div class="sidebar">
+        <div class="header">
+            <h2>University Track</h2>
+        </div>
+        <div class="sub-header">
+            <input type="text" id="route-search" class="sidebar-search" placeholder="Search by Route" onkeyup="searchRoutes()">
+            <button id="toggle-inactive" onclick="toggleInactive()" value="false">Show Inactive Routes</button>
+        </div>
+        <div id="route-list"></div>
+    </div>
+    <script src="./script.js"></script>
+    <script id="map-script"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1tDfs05q-oOIi43ODY33bqwE3vU8ljFg&callback=initMap&libraries=places&v=beta"
+        defer
+    ></script>
+</body>
+</html>
+
