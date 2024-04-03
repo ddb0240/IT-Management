@@ -197,11 +197,15 @@ body {
     border: none;
 }
 
-.header{
+.header {
     width: 100%;
     margin: 20px 0;
-    justify-items: start;
-    
+    display: flex;
+    align-items: center;
+}
+
+.header img {
+    margin-right: 10px;
 }
 
 .toggle-sidebar{ 
